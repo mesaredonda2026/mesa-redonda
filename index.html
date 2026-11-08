@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com; frame-src https://www.google.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Mesa Redonda Brasileira de Evangelização | 9 a 11 de novembro de 2026</title>
+<meta name="description" content="A seara é grande e ninguém a alcança sozinho. Três dias para sentar à mesma mesa, orar, planejar e servir juntos à Igreja brasileira. Veja a programação e assine o termo de adesão.">
+<meta name="theme-color" content="#22323f">
+<meta property="og:title" content="Mesa Redonda Brasileira de Evangelização">
+<meta property="og:description" content="9 a 11 de novembro de 2026, na Igreja da Cidade, em São José dos Campos. Conheça a Mesa e assine o termo de adesão.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/gloock-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script src="js/boot.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+<header class="nav" id="topo">
+  <div class="nav-in">
+    <a class="nav-brand" href="#topo" aria-label="Mesa Redonda, início">
+      <img src="assets/img/symbol-white.png" alt="" width="32" height="32">
+      <span>Mesa Redonda</span>
+    </a>
+    <a class="btn btn-gold btn-sm nav-cta" href="#adesao">Assinar o termo</a>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- Abertura: o símbolo se monta sozinho -->
+<section class="hero bg-dusk" id="film" aria-labelledby="hero-title">
+  <div class="hero-in">
+    <div class="film-sym" id="film-sym" aria-hidden="true">
+      <img class="p p-tl" src="assets/film/piece-tl.png" alt="" width="640" height="638">
+      <img class="p p-tr" src="assets/film/piece-tr.png" alt="" width="640" height="638">
+      <img class="p p-bl" src="assets/film/piece-bl.png" alt="" width="640" height="638">
+      <img class="p p-br" src="assets/film/piece-br.png" alt="" width="640" height="638">
+      <img class="p p-cross" src="assets/film/piece-cross.png" alt="" width="640" height="638">
+    </div>
+    <div class="hero-text">
+      <p class="kicker">Então nos sentamos à mesma mesa</p>
+      <h1 id="hero-title" class="hero-title">Mesa Redonda<br>Brasileira de Evangelização</h1>
+      <p class="hero-date">9 a 11 de novembro de 2026 &middot; Igreja da Cidade, São José dos Campos</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#adesao">Assinar o termo</a>
+        <a class="btn btn-line" href="#dias">Ver programação</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CENA 4: a mesa e os dez valores -->
+<section class="scene valores-scene bg-mid" id="valores" aria-labelledby="valores-h">
+  <div class="wrap">
+    <p class="kicker" data-rv>A Mesa</p>
+    <h2 class="h2" id="valores-h" data-rv>Uma mesa permanente, não uma nova denominação.</h2>
+    <p class="lead" data-rv>Dez valores sustentam o que acontece ao redor dela. Toque em um lugar para ler.</p>
+    <div class="valores" data-rv>
+      <div class="roundtable" id="roundtable" role="group" aria-label="Os dez valores da Mesa">
+        <div class="rt-ring" aria-hidden="true"></div>
+        <img class="rt-center" src="assets/img/symbol-white.png" alt="" aria-hidden="true">
+      </div>
+      <div class="valor-panel" id="valor-panel" aria-live="polite">
+        <p class="valor-n" id="valor-n">1</p>
+        <h3 class="valor-t" id="valor-t"></h3>
+        <p class="valor-d" id="valor-d"></p>
+      </div>
+    </div>
+    <div class="more" data-rv>
+      <button class="btn btn-line" type="button" data-open="dlg-mesa">Saiba mais sobre a Mesa</button>
+    </div>
+  </div>
+</section>
+
+<div class="light bg-dawn">
+
+<section class="scene days-scene" id="dias" aria-labelledby="dias-h">
+  <div class="wrap">
+    <div class="days-top">
+      <div>
+        <p class="kicker" data-rv>9, 10 e 11 de novembro</p>
+        <h2 class="h2" id="dias-h" data-rv>Três dias. Um só chamado.</h2>
+        <p class="lead" data-rv><span id="countdown">Calculando</span> <span id="countdown-note">para a recepção, às 12h30 de segunda</span></p>
+      </div>
+      <button class="btn btn-line-dark" type="button" data-open-day="seg" data-rv>Programação completa</button>
+    </div>
+    <ol class="days" id="days"></ol>
+    <p class="fine" data-rv>Os horários podem receber ajustes. Igreja da Cidade, Rua Todas as Nações, s/n, Vila Tatetuba, São José dos Campos, SP.</p>
+  </div>
+</section>
+
+<!-- CENA 6: a adesão -->
+<section class="sit" id="sente" aria-labelledby="sente-h">
+  <div class="sit-photo" aria-hidden="true"><img src="assets/film/maos.jpg" alt="" width="1600" height="1068" loading="lazy"></div>
+  <div class="wrap sit-in">
+    <p class="kicker">Adesão</p>
+    <h2 class="h2" id="sente-h">Sente-se à mesa.</h2>
+    <p class="lead">Qualquer pessoa que represente uma organização missionária ou eclesiástica pode assinar. Se preferir, a assinatura também pode ser feita durante a oficialização da Mesa, na segunda, 9 de novembro.</p>
+  </div>
+</section>
+
+<section class="scene sec-adesao" id="adesao" aria-label="Assinatura do termo de adesão">
+  <div class="wrap">
+    <div class="flow" id="flow">
+      <ol class="steps" id="steps" aria-label="Etapas">
+        <li data-step="1" class="on"><span>Ler o termo</span></li>
+        <li data-step="2"><span>Dados da organização</span></li>
+        <li data-step="3"><span>Assinar</span></li>
+      </ol>
+
+      <div class="step" id="step-1">
+        <div class="termo" id="termo" tabindex="0" role="region" aria-label="Texto do termo de acordo"></div>
+        <p class="termo-hint" id="termo-hint">Leia o termo acima. Quando estiver de acordo, toque em Continuar.</p>
+        <div class="step-actions">
+          <button class="btn btn-navy" type="button" id="to-2">Continuar</button>
+        </div>
+      </div>
+
+      <form class="step" id="step-2" hidden novalidate>
+        <div class="fields">
+          <div class="field">
+            <label for="f-inst">Nome da instituição</label>
+            <input id="f-inst" name="instituicao" type="text" autocomplete="organization" required>
+            <p class="err" data-for="f-inst"></p>
+          </div>
+          <div class="field">
+            <label for="f-rep">Nome do representante legal</label>
+            <input id="f-rep" name="representante" type="text" autocomplete="name" required>
+            <p class="err" data-for="f-rep"></p>
+          </div>
+          <div class="field">
+            <label for="f-cargo">Cargo</label>
+            <select id="f-cargo" name="cargo" required>
+              <option value="">Selecione</option>
+              <option>Diretor</option>
+              <option>Presidente</option>
+              <option>Pastor Responsável</option>
+            </select>
+            <p class="err" data-for="f-cargo"></p>
+          </div>
+          <div class="field">
+            <label for="f-categoria">Categoria da organização</label>
+            <select id="f-categoria" name="categoria" required>
+              <option value="">Selecione</option>
+            </select>
+            <p class="help">Define o valor de contribuição mensal, conforme o termo.</p>
+            <p class="err" data-for="f-categoria"></p>
+          </div>
+          <div class="field">
+            <label for="f-tel">Telefone ou WhatsApp</label>
+            <input id="f-tel" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(12) 90000-0000" required>
+            <p class="help">Com DDD. É por aqui que a coordenação vai falar com a sua organização.</p>
+            <p class="err" data-for="f-tel"></p>
+          </div>
+          <div class="field">
+            <label for="f-local">Local</label>
+            <input id="f-local" name="local" type="text" autocomplete="address-level2" required>
+            <p class="help">Cidade e estado onde o termo está sendo assinado.</p>
+            <p class="err" data-for="f-local"></p>
+          </div>
+          <div class="field">
+            <label for="f-data">Data</label>
+            <input id="f-data" name="data" type="text" readonly>
+            <p class="help">Preenchida automaticamente.</p>
+          </div>
+        </div>
+        <div class="hp" aria-hidden="true"><label for="f-site">Não preencha este campo</label><input id="f-site" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <div class="step-actions">
+          <button class="btn btn-line-dark" type="button" data-back="1">Voltar</button>
+          <button class="btn btn-navy" type="submit">Continuar</button>
+        </div>
+      </form>
+
+      <form class="step" id="step-3" hidden novalidate>
+        <div class="sig-modes tabs" role="tablist" aria-label="Forma de assinar" data-tabs="sig">
+          <button role="tab" id="tab-draw" aria-selected="true" aria-controls="sig-box" type="button">Desenhar</button>
+          <button role="tab" id="tab-type" aria-selected="false" aria-controls="sig-box" type="button" tabindex="-1">Digitar</button>
+        </div>
+        <div class="sig-box" id="sig-box" role="tabpanel" aria-labelledby="tab-draw">
+          <canvas id="sig" aria-label="Campo de assinatura. Desenhe com o dedo ou o mouse."></canvas>
+          <p class="sig-ph" id="sig-ph">Assine aqui</p>
+          <button class="sig-clear" type="button" id="sig-clear">Limpar</button>
+        </div>
+        <div class="field sig-type" id="sig-type-wrap" hidden>
+          <label for="sig-text">Seu nome como assinatura</label>
+          <input id="sig-text" type="text" autocomplete="off">
+        </div>
+        <p class="err" id="sig-err"></p>
+        <label class="check">
+          <input type="checkbox" id="f-aceite">
+          <span>Li o termo e declaro que sou representante legal da instituição. Esta assinatura eletrônica expressa o livre consentimento da organização.</span>
+        </label>
+        <p class="err" id="aceite-err"></p>
+        <p class="privacy">Usamos estes dados somente para registrar a adesão à Mesa Redonda Brasileira de Evangelização e emitir o seu comprovante.</p>
+        <div class="step-actions">
+          <button class="btn btn-line-dark" type="button" data-back="2">Voltar</button>
+          <button class="btn btn-navy" type="submit" id="btn-send">Assinar e enviar</button>
+        </div>
+        <p class="err" id="send-err" role="alert"></p>
+      </form>
+
+      <div class="step done" id="step-done" hidden tabindex="-1">
+        <h3 class="h3">Termo assinado.</h3>
+        <p>A adesão de <strong id="d-inst"></strong> foi registrada. Guarde o número de protocolo.</p>
+        <p class="protocolo" id="d-prot"></p>
+        <p class="demo-note" id="demo-note" hidden>Modo de demonstração: este envio não foi gravado em nenhuma planilha.</p>
+        <div class="step-actions">
+          <button class="btn btn-navy" type="button" id="btn-pdf">Baixar o termo em PDF</button>
+          <a class="btn btn-line-dark" href="#topo">Voltar ao início</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene local-scene" id="local" aria-labelledby="local-h">
+  <div class="wrap local">
+    <div class="local-text">
+      <h2 class="h2" id="local-h">Igreja da Cidade</h2>
+      <address>
+        Rua Todas as Nações, s/n<br>
+        Vila Tatetuba, São José dos Campos, SP<br>
+        CEP 12220-612
+      </address>
+      <div class="local-cta">
+        <a class="btn btn-navy" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Igreja+da+Cidade+Rua+Todas+as+Na%C3%A7%C3%B5es+Vila+Tatetuba+S%C3%A3o+Jos%C3%A9+dos+Campos+SP">Abrir no mapa</a>
+        <a class="btn btn-line-dark" target="_blank" rel="noopener" href="https://waze.com/ul?q=Rua%20Todas%20as%20Na%C3%A7%C3%B5es%2C%20Vila%20Tatetuba%2C%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos&navigate=yes">Abrir no Waze</a>
+      </div>
+      <p class="contact-h">Dúvidas? Fale com quem está à frente.</p>
+      <ul class="contacts">
+        <li><span>Micheline Sampaio</span><a href="https://wa.me/5588996343673" target="_blank" rel="noopener">+55 88 99634-3673</a></li>
+        <li><span>Fábio Torres</span><a href="https://wa.me/5512981083662" target="_blank" rel="noopener">+55 12 98108-3662</a></li>
+      </ul>
+    </div>
+    <div class="map">
+      <iframe title="Mapa da Igreja da Cidade" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Rua+Todas+as+Na%C3%A7%C3%B5es,+Vila+Tatetuba,+S%C3%A3o+Jos%C3%A9+dos+Campos,+SP&amp;output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+</div><!-- /light -->
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <img src="assets/img/logo-white.png" alt="Mesa Redonda Brasileira de Evangelização" width="1400" height="465">
+    <p>Cristo no centro de tudo. Todas as organizações à mesma mesa.</p>
+    <p class="credits">Foto: Wylly Suhendra, via Unsplash.</p>
+  </div>
+</footer>
+
+<!-- Saiba mais -->
+<dialog class="dlg bg-dawn" id="dlg-mesa" aria-labelledby="dlg-mesa-h">
+  <div class="dlg-head">
+    <h2 class="h3" id="dlg-mesa-h">A Mesa por dentro</h2>
+    <button class="dlg-x" type="button" data-close aria-label="Fechar">Fechar</button>
+  </div>
+  <div class="dlg-body">
+    <div class="tabs tabs-scroll" role="tablist" aria-label="Sobre a Mesa" data-tabs="mesa">
+      <button role="tab" id="m-tab-1" aria-controls="m-pan-1" aria-selected="true" type="button">Quem somos</button>
+      <button role="tab" id="m-tab-2" aria-controls="m-pan-2" aria-selected="false" type="button" tabindex="-1">Direitos e deveres</button>
+      <button role="tab" id="m-tab-3" aria-controls="m-pan-3" aria-selected="false" type="button" tabindex="-1">Como trabalha</button>
+      <button role="tab" id="m-tab-4" aria-controls="m-pan-4" aria-selected="false" type="button" tabindex="-1">Sustentabilidade</button>
+      <button role="tab" id="m-tab-5" aria-controls="m-pan-5" aria-selected="false" type="button" tabindex="-1">Vozes</button>
+    </div>
+
+    <div class="tabpanel" id="m-pan-1" role="tabpanel" aria-labelledby="m-tab-1">
+      <p class="panel-intro">Um ecossistema sem fins lucrativos que nasce para romper o isolamento ministerial e manifestar a unidade do Reino de Deus no território nacional.</p>
+      <ul class="nots" aria-label="O que a Mesa não é">
+        <li>Não é uma denominação</li>
+        <li>Não é uma estrutura burocrática</li>
+        <li>Não é uma coalizão com fins lucrativos</li>
+      </ul>
+      <div class="pm">
+        <div><h3 class="h3">Propósito</h3><p>Conectar organizações missionárias e evangelísticas para servir a Igreja e inspirar cada cristão a compartilhar o Evangelho.</p></div>
+        <div><h3 class="h3">Missão</h3><p>Criar um ambiente permanente de cooperação, planejamento e ação conjunta, otimizando recursos para potencializar a evangelização e o discipulado nacional.</p></div>
+      </div>
+    </div>
+
+    <div class="tabpanel" id="m-pan-2" role="tabpanel" aria-labelledby="m-tab-2" hidden>
+      <div class="two">
+        <div>
+          <h3 class="h3">O que a Mesa oferece</h3>
+          <dl class="defs one">
+            <div><dt>Ambiente seguro</dt><dd>Acesso a um espaço de confiança, comunhão, cooperação e escuta em pé de igualdade.</dd></div>
+            <div><dt>Voz e protagonismo</dt><dd>Direito de propor iniciativas, projetos e temas de reflexão, e de ajudar a construir a agenda nacional de evangelização.</dd></div>
+            <div><dt>Conexão e infraestrutura</dt><dd>Acesso à plataforma digital de comunicação e colaboração, a fóruns, grupos de trabalho e a uma rede de relacionamentos estratégicos.</dd></div>
+            <div><dt>Transparência</dt><dd>Acesso irrestrito a relatórios, informações e prestações de contas.</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3 class="h3">O que a organização entrega</h3>
+          <dl class="defs one">
+            <div><dt>Cultura de alinhamento</dt><dd>Preservar a unidade, honrar os valores e princípios, manter a ética, a humildade, o respeito e a escuta. Colocar a visão de Reino acima dos interesses institucionais.</dd></div>
+            <div><dt>Engajamento ativo</dt><dd>Participar das reuniões, fóruns e encontros nacionais e regionais, e contribuir para a construção coletiva da Mesa.</dd></div>
+            <div><dt>Generosidade de conteúdo</dt><dd>Compartilhar experiências, aprendizados, dados de campo e boas práticas.</dd></div>
+            <div><dt>Sustentabilidade</dt><dd>Orar regularmente pelo movimento e apoiar a sustentabilidade da Mesa conforme o modelo definido coletivamente.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabpanel" id="m-pan-3" role="tabpanel" aria-labelledby="m-tab-3" hidden>
+      <div class="ops">
+        <article>
+          <h3 class="h3">Agenda coletiva</h3>
+          <p>Um calendário unificado que mapeia as grandes ações de todas as organizações parceiras. Evita a sobreposição de eventos nas mesmas datas e regiões, para que a Igreja brasileira receba as iniciativas de forma coordenada.</p>
+        </article>
+        <article>
+          <h3 class="h3">Colaboração em ações e eventos</h3>
+          <p>Uma plataforma de socorro mútuo. Quando uma organização planeja uma ação de campo, abre espaço para que outras colaborem com sua expertise: uma agência entra com literatura, outra com treinamento de discipulado, outra com logística local.</p>
+        </article>
+      </div>
+      <ol class="rhythm" aria-label="Ritmo de encontros">
+        <li><span class="r-big">Todo mês</span><span class="r-txt">Reuniões em ambiente virtual, com moderação do Pastor Executivo.</span></li>
+        <li><span class="r-big">Em cada região</span><span class="r-txt">Encontros regionais periódicos.</span></li>
+        <li><span class="r-big">Uma vez por ano</span><span class="r-txt">Encontro Nacional anual.</span></li>
+      </ol>
+    </div>
+
+    <div class="tabpanel" id="m-pan-4" role="tabpanel" aria-labelledby="m-tab-4" hidden>
+      <p class="panel-intro">Nenhuma organização será excluída por limitações financeiras. A Mesa adota a corresponsabilidade financeira e administrativa.</p>
+      <div class="sust">
+        <div>
+          <h3 class="h3">Estrutura mínima</h3>
+          <ul class="plain">
+            <li><strong>Coordenação executiva.</strong> Um Pastor Executivo em tempo integral para o relacionamento com os participantes, a moderação das reuniões mensais, o acompanhamento dos grupos de trabalho e a execução das decisões coletivas.</li>
+            <li><strong>Infraestrutura digital.</strong> Plataforma para comunicação interna segura, repositório de pesquisas missionárias e compartilhamento de materiais.</li>
+            <li><strong>Suporte administrativo.</strong> Comunicação e secretaria para apoiar a logística dos encontros nacionais e regionais.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="h3">Contribuição equitativa</h3>
+          <ul class="plain">
+            <li><strong>Construção coletiva.</strong> O valor e a forma de arrecadação são definidos em conjunto por todas as organizações sentadas à Mesa.</li>
+            <li><strong>Proporcionalidade.</strong> O modelo respeita a realidade, o porte e a capacidade orçamentária de cada instituição.</li>
+            <li><strong>Prestação de contas.</strong> Transparência absoluta e periódica de cada centavo investido.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabpanel" id="m-pan-5" role="tabpanel" aria-labelledby="m-tab-5" hidden>
+      <p class="panel-intro">Vozes que vão conduzir a Palavra e o debate.</p>
+      <ul class="voices" id="voices"></ul>
+    </div>
+  </div>
+</dialog>
+
+<!-- Programação completa -->
+<dialog class="dlg bg-dawn" id="dlg-prog" aria-labelledby="dlg-prog-h">
+  <div class="dlg-head">
+    <h2 class="h3" id="dlg-prog-h">Programação completa</h2>
+    <button class="dlg-x" type="button" data-close aria-label="Fechar">Fechar</button>
+  </div>
+  <div class="dlg-body">
+    <div class="tabs" role="tablist" aria-label="Dias do encontro" data-tabs="dias" id="day-tabs"></div>
+    <div id="day-panels"></div>
+  </div>
+</dialog>
+
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/jspdf.umd.min.js" defer></script>
+<script src="js/data.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
