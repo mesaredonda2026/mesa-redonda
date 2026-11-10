@@ -37,6 +37,12 @@ No projeto do script: **Configurações do projeto (engrenagem) > Propriedades d
 ### Se mudar o `Code.gs` depois
 Salvar não basta. Vá em **Implantar > Gerenciar implantações > lápis (editar) > Versão: Nova versão > Implantar**. A URL continua a mesma. Sem isso o site continua usando o código antigo.
 
+### O que fica guardado em cada adesão
+- Uma linha na planilha, com os dados, o telefone, a categoria e o valor mensal.
+- Na pasta de assinaturas do Drive: `assinatura-PROTOCOLO.png` e `termo-PROTOCOLO.pdf` (o termo completo, já assinado).
+- Os links dos dois arquivos ficam nas colunas "Arquivo da assinatura" e "Termo assinado (PDF)" da planilha.
+- Se a planilha foi criada antes da coluna "Termo assinado (PDF)", ela é criada sozinha na primeira adesão, na coluna P.
+
 ### Quem acessa os dados
 Só a conta dona do script e quem você convidar para a planilha. Não compartilhe a pasta de assinaturas com "qualquer pessoa com o link". Cada assinatura é um dado pessoal (LGPD): compartilhe só com quem precisa.
 

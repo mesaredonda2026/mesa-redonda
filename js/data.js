@@ -12,12 +12,8 @@ window.MESA = {
     FIM_EVENTO: "2026-11-11T12:30:00-03:00"
   },
 
-  /* Categorias e valor de contribuição mensal (o servidor confere os mesmos valores) */
-  categorias: [
-    ["Organização Cooperadora", "R$ 300,00"],
-    ["Organização Parceira", "R$ 700,00"],
-    ["Organização Mantenedora", "R$ 1.600,00"]
-  ],
+  /* Valores de contribuição mensal oferecidos no formulário (além de "Outros valores") */
+  contribuicoes: [300, 700, 1600],
 
   valores: [
     ["Cristo no centro de tudo", "Jesus Cristo é o fundamento, a razão e o propósito supremo da existência da Mesa."],

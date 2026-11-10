@@ -223,9 +223,31 @@
     termoEl.innerHTML = html;
   })();
 
-  D.categorias.forEach(function (c) {
-    var o = document.createElement("option"); o.value = c[0]; o.textContent = c[0] + ", " + c[1]; $("#f-categoria").appendChild(o);
+  function brl(n) {
+    var s = n.toFixed(2).split("."), i = s[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return "R$ " + i + "," + s[1];
+  }
+  D.contribuicoes.concat(["outros"]).forEach(function (v) {
+    var o = document.createElement("option"); o.value = v; o.textContent = v === "outros" ? "Outros valores" : brl(v); $("#f-valor").appendChild(o);
   });
+  $("#f-valor").addEventListener("change", function () {
+    var outro = this.value === "outros";
+    $("#valor-outro-wrap").hidden = !outro;
+    if (outro) $("#f-valor-outro").focus();
+  });
+  // aceita 450, 450,50, 2.500,00, R$ 2500
+  function lerValor(txt) {
+    var s = String(txt).replace(/R\$|\s/g, "");
+    if (!/^[\d.,]+$/.test(s)) return null;
+    if (s.indexOf(",") !== -1) s = s.replace(/\./g, "").replace(",", ".");
+    else if (/^\d{1,3}(\.\d{3})+$/.test(s)) s = s.replace(/\./g, "");
+    var n = parseFloat(s);
+    return isFinite(n) && n >= 1 && n <= 1000000 ? Math.round(n * 100) / 100 : null;
+  }
+  function valorEscolhido() {
+    var v = $("#f-valor").value;
+    return v === "outros" ? lerValor($("#f-valor-outro").value) : (v ? Number(v) : null);
+  }
   var T0 = Date.now();
 
   /* ---------- Fluxo em etapas ---------- */
@@ -263,14 +285,16 @@
       if (v.length < 2) { setErr(c[0], c[1]); ok = false; } else setErr(c[0], "");
     });
     if (!$("#f-cargo").value) { setErr("f-cargo", "Selecione o cargo."); ok = false; } else setErr("f-cargo", "");
-    if (!$("#f-categoria").value) { setErr("f-categoria", "Selecione a categoria."); ok = false; } else setErr("f-categoria", "");
+    if (!$("#f-valor").value) { setErr("f-valor", "Selecione o valor."); ok = false; } else setErr("f-valor", "");
+    if ($("#f-valor").value === "outros" && valorEscolhido() === null) { setErr("f-valor-outro", "Informe um valor válido, por exemplo 450,00."); ok = false; } else setErr("f-valor-outro", "");
     var dig = $("#f-tel").value.replace(/\D/g, "");
     if (dig.length < 10 || dig.length > 13 || !/^\+?[\d\s().-]+$/.test($("#f-tel").value.trim())) { setErr("f-tel", "Informe um telefone com DDD, por exemplo (12) 90000-0000."); ok = false; } else setErr("f-tel", "");
     if (ok) goto(3); else { var bad = $(".field.bad input, .field.bad select", form2); if (bad) bad.focus(); }
   });
   ["f-inst", "f-rep", "f-local", "f-tel"].forEach(function (id) { document.getElementById(id).addEventListener("input", function () { setErr(id, ""); }); });
   $("#f-cargo").addEventListener("change", function () { setErr("f-cargo", ""); });
-  $("#f-categoria").addEventListener("change", function () { setErr("f-categoria", ""); });
+  $("#f-valor").addEventListener("change", function () { setErr("f-valor", ""); });
+  $("#f-valor-outro").addEventListener("input", function () { setErr("f-valor-outro", ""); });
 
   /* ---------- Assinatura ---------- */
   var cv = $("#sig"), ctx = cv.getContext("2d"), box = $("#sig-box"), typeWrap = $("#sig-type-wrap"), typeIn = $("#sig-text");
@@ -350,7 +374,7 @@
       return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ("0" + b.toString(16)).slice(-2); }).join("");
     }).catch(function () { return "indisponivel"; });
   }
-  var ultimo = null;
+  var ultimo = null, ultimoDoc = null;
   steps[3].addEventListener("submit", function (e) {
     e.preventDefault();
     var ok = true, ae = $("#aceite-err"), se = $("#sig-err"), snd = $("#send-err");
@@ -363,7 +387,7 @@
     var p = {
       protocolo: protocolo(), versaoTermo: "2026-11",
       instituicao: $("#f-inst").value.trim(), representante: $("#f-rep").value.trim(), cargo: $("#f-cargo").value,
-      categoria: $("#f-categoria").value, telefone: $("#f-tel").value.trim(), valorMensal: (D.categorias.filter(function (c) { return c[0] === $("#f-categoria").value; })[0] || ["", ""])[1],
+      telefone: $("#f-tel").value.trim(), valorMensal: valorEscolhido(),
       website: $("#f-site").value, tempoMs: Date.now() - T0,
       local: $("#f-local").value.trim(), dataAssinatura: agora.toISOString(), dataExibida: dataExtenso(agora),
       assinaturaPng: cv.toDataURL("image/png"), formaAssinatura: mode === "draw" ? "desenhada" : "digitada",
@@ -371,7 +395,9 @@
     };
     sha256(JSON.stringify(p)).then(function (h) {
       p.hash = h;
-      return enviar(p);
+      var doc = montarPdf(p);   // o mesmo PDF é guardado no Drive e baixado pela pessoa
+      var corpo = Object.assign({}, p, { pdfBase64: doc.output("datauristring").split(",")[1] });
+      return enviar(corpo).then(function (demo) { ultimoDoc = doc; return demo; });
     }).then(function (demo) {
       ultimo = p;
       $("#d-inst").textContent = p.instituicao; $("#d-prot").textContent = p.protocolo; $("#demo-note").hidden = !demo;
@@ -393,9 +419,9 @@
   }
 
   /* ---------- PDF do termo assinado ---------- */
-  $("#btn-pdf").addEventListener("click", function () {
-    if (!ultimo || !(window.jspdf && window.jspdf.jsPDF)) { alert("Não foi possível gerar o PDF agora. Tente novamente em instantes."); return; }
-    var p = ultimo, doc = new window.jspdf.jsPDF({ unit: "mm", format: "a4" });
+  function montarPdf(p) {
+    if (!(window.jspdf && window.jspdf.jsPDF)) throw new Error("pdf");
+    var doc = new window.jspdf.jsPDF({ unit: "mm", format: "a4" });
     var L = 20, W = 170, PH = 297, B = 24, y = 22;
     function need(h) { if (y + h > PH - B) { doc.addPage(); y = 22; } }
     function texto(str, size, style, gap, lh, align) {
@@ -424,7 +450,7 @@
     texto("Nome da Instituição: " + p.instituicao, 10, "normal", 1, 5);
     texto("Nome do Representante Legal: " + p.representante, 10, "normal", 1, 5);
     texto("Cargo: " + p.cargo, 10, "normal", 1, 5);
-    texto("Categoria: " + p.categoria + ", contribuição mensal de " + p.valorMensal, 10, "normal", 4, 5);
+    texto("Valor de contribuição mensal: " + brl(p.valorMensal), 10, "normal", 4, 5);
     try {
       var iw = 70, ih = iw * (cv.height / cv.width); if (ih > 32) { ih = 32; iw = ih * (cv.width / cv.height); }
       need(ih + 12); doc.addImage(p.assinaturaPng, "PNG", L, y, iw, ih); y += ih + 1;
@@ -440,7 +466,11 @@
       doc.text("Integridade (SHA-256): " + p.hash, L, PH - 10);
       doc.setTextColor(0);
     }
-    doc.save("termo-mesa-redonda-" + p.protocolo + ".pdf");
+    return doc;
+  }
+  $("#btn-pdf").addEventListener("click", function () {
+    if (!ultimo || !ultimoDoc) { alert("Não foi possível gerar o PDF agora. Tente novamente em instantes."); return; }
+    ultimoDoc.save("termo-mesa-redonda-" + ultimo.protocolo + ".pdf");
   });
 
   /* ---------- Abertura automática ---------- */

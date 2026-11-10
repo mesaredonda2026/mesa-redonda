@@ -145,12 +145,17 @@
             <p class="err" data-for="f-cargo"></p>
           </div>
           <div class="field">
-            <label for="f-categoria">Categoria da organização</label>
-            <select id="f-categoria" name="categoria" required>
+            <label for="f-valor">Valor de contribuição mensal</label>
+            <select id="f-valor" name="valor" required>
               <option value="">Selecione</option>
             </select>
-            <p class="help">Define o valor de contribuição mensal, conforme o termo.</p>
-            <p class="err" data-for="f-categoria"></p>
+            <p class="err" data-for="f-valor"></p>
+          </div>
+          <div class="field" id="valor-outro-wrap" hidden>
+            <label for="f-valor-outro">Qual valor?</label>
+            <input id="f-valor-outro" name="valor_outro" type="text" inputmode="decimal" autocomplete="off" placeholder="R$ 0,00">
+            <p class="help">Digite o valor mensal em reais.</p>
+            <p class="err" data-for="f-valor-outro"></p>
           </div>
           <div class="field">
             <label for="f-tel">Telefone ou WhatsApp</label>
@@ -252,7 +257,6 @@
   <div class="wrap foot-in">
     <img src="assets/img/logo-white.png" alt="Mesa Redonda Brasileira de Evangelização" width="1400" height="465">
     <p>Cristo no centro de tudo. Todas as organizações à mesma mesa.</p>
-    <p class="credits">Foto: Wylly Suhendra, via Unsplash.</p>
   </div>
 </footer>
 

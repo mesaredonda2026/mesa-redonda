@@ -298,7 +298,6 @@ input:focus, select:focus { outline: 3px solid var(--gold); outline-offset: 1px;
 .foot-in { display: grid; gap: 14px; justify-items: start; }
 .foot img { width: min(280px, 70%); }
 .foot p { margin: 0; color: rgba(247, 244, 238, .85); }
-.foot .credits { font-size: .85rem; color: rgba(247, 244, 238, .6); }
 
 @media (min-width: 861px) { .foot { padding-bottom: 48px; } }
 
