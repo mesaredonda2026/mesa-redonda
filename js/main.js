@@ -233,7 +233,7 @@
   $("#f-valor").addEventListener("change", function () {
     var outro = this.value === "outros";
     $("#valor-outro-wrap").hidden = !outro;
-    if (outro) $("#f-valor-outro").focus();
+    if (outro) $("#f-valor-outro").focus(); else { $("#f-valor-outro").value = ""; setErr("f-valor-outro", ""); }
   });
   // aceita 450, 450,50, 2.500,00, R$ 2500
   function lerValor(txt) {
@@ -294,7 +294,14 @@
   ["f-inst", "f-rep", "f-local", "f-tel"].forEach(function (id) { document.getElementById(id).addEventListener("input", function () { setErr(id, ""); }); });
   $("#f-cargo").addEventListener("change", function () { setErr("f-cargo", ""); });
   $("#f-valor").addEventListener("change", function () { setErr("f-valor", ""); });
-  $("#f-valor-outro").addEventListener("input", function () { setErr("f-valor-outro", ""); });
+  // máscara de moeda: só números, formatados como R$ 1.234,56 conforme a pessoa digita
+  $("#f-valor-outro").addEventListener("input", function () {
+    var d = this.value.replace(/\D/g, "").replace(/^0+/, "").slice(0, 8);
+    setErr("f-valor-outro", "");
+    if (!d) { this.value = ""; return; }
+    while (d.length < 3) d = "0" + d;
+    this.value = brl(Number(d.slice(0, -2) + "." + d.slice(-2)));
+  });
 
   /* ---------- Assinatura ---------- */
   var cv = $("#sig"), ctx = cv.getContext("2d"), box = $("#sig-box"), typeWrap = $("#sig-type-wrap"), typeIn = $("#sig-text");
