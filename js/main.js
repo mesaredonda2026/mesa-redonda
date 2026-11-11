@@ -402,9 +402,11 @@
     };
     sha256(JSON.stringify(p)).then(function (h) {
       p.hash = h;
-      var doc = montarPdf(p);   // o mesmo PDF é guardado no Drive e baixado pela pessoa
-      var corpo = Object.assign({}, p, { pdfBase64: doc.output("datauristring").split(",")[1] });
-      return enviar(corpo).then(function (demo) { ultimoDoc = doc; return demo; });
+      // Só a assinatura e os dados vão para o Google. O PDF é gerado no aparelho, apenas para a pessoa baixar.
+      return enviar(p).then(function (demo) {
+        try { ultimoDoc = montarPdf(p); } catch (x) { ultimoDoc = null; }
+        return demo;
+      });
     }).then(function (demo) {
       ultimo = p;
       $("#d-inst").textContent = p.instituicao; $("#d-prot").textContent = p.protocolo; $("#demo-note").hidden = !demo;
