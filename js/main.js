@@ -413,6 +413,7 @@
       var m = err && err.message;
       snd.textContent = m === "duplicado" ? "Já recebemos uma adesão desta instituição com este representante. Para corrigir algo, fale com a coordenação."
         : m === "limite" ? "Muitas adesões em pouco tempo. Aguarde alguns minutos e tente de novo."
+        : m === "invalido" || m === "servidor" ? "O servidor recusou o envio (" + m + "). Revise os campos e tente de novo. Se continuar, avise a coordenação."
         : "Não foi possível enviar agora. Confira a conexão e toque em Assinar e enviar de novo. Seus dados continuam preenchidos.";
     }).then(function () { btn.disabled = false; btn.textContent = "Assinar e enviar"; });
   });
